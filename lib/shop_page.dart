@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'favorites_page.dart';
+import 'profile_page.dart'; // Қосылған файл
 
 void main() {
   runApp(MaterialApp(
@@ -47,6 +49,18 @@ class _ShopPageState extends State<ShopPage> {
     setState(() {
       _selectedIndex = index;
     });
+
+    if (index == 1) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => FavoritesPage()),
+      );
+    } else if (index == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => ProfilePage()),
+      );
+    }
   }
 
   Widget _buildPageContent() {
@@ -75,10 +89,8 @@ class _ShopPageState extends State<ShopPage> {
           },
         ),
       );
-    } else if (_selectedIndex == 1) {
-      return Center(child: Text('Favorites Page'));
     } else {
-      return Center(child: Text('Profile Page'));
+      return Container();
     }
   }
 
@@ -143,8 +155,7 @@ class _ShopPageState extends State<ShopPage> {
       ),
       padding: EdgeInsets.all(12),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        crossAxisAlignment: CrossAxisAlignment.start,children: [
           Stack(
             children: [
               Hero(
@@ -188,7 +199,6 @@ class _ShopPageState extends State<ShopPage> {
   }
 }
 
-// Детальная страница продукта
 class ProductDetailPage extends StatelessWidget {
   final Map<String, String> product;
 
@@ -220,13 +230,6 @@ class ProductDetailPage extends StatelessWidget {
                   height: 300,
                   width: double.infinity,
                   fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) {
-                    return Container(
-                      height: 300,
-                      color: Colors.grey.shade300,
-                      child: Center(child: Icon(Icons.broken_image)),
-                    );
-                  },
                 ),
               ),
             ),
@@ -242,7 +245,7 @@ class ProductDetailPage extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Text(
-              'JIHC merch is a stylish collection of branded products representing the JIHC College. It includes t-shirts, hoodies, mugs, keychains, and more!',
+              'JIHC merch is a stylish collection of branded products representing the JIHC College.',
               style: TextStyle(fontSize: 16),
             ),
           ],
@@ -252,20 +255,107 @@ class ProductDetailPage extends StatelessWidget {
   }
 }
 
-// Жаңа бет JIHC BRAND басылғанда ашылады
 class AnotherPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("JIHC Info"),
+        title: Text("JIHC Brand Info"),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
+        elevation: 0.5,
       ),
-      body: Center(
-        child: Text(
-          "Welcome to JIHC Brand Info Page!",
-          style: TextStyle(fontSize: 20),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              width: double.infinity,
+              height: 180,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/book.JPG"),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              child: Container(
+                color: Colors.black.withOpacity(0.4),
+                alignment: Alignment.center,
+                child: Text(
+                  "Welcome to JIHC Store",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 26,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "About JIHC Brand",
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 12),
+                  Text(
+                    "JIHC Shop is the official store of JIHC College. "
+                    "We sell high-quality merchandise for students, alumni, and supporters of JIHC. "
+                    "Our goal is to promote student pride and community spirit through stylish products.",
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  SizedBox(height: 24),
+                  Card(
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: ListTile(
+                      title: Text("What We Sell"),
+                      subtitle: Text("Hoodies, T-Shirts, Notebooks, Keychains, Mugs, Bracelets and more..."),
+                    ),
+                  ),
+                  SizedBox(height: 12),
+                  Card(
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: ListTile(
+                      title: Text("Our Stores Are In"),
+                      subtitle: Text("📍 Almaty\n📍 Taraz\n📍 Astana"),
+                    ),
+                  ),
+                  SizedBox(height: 12),
+                  Card(
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: ListTile(
+                      title: Text("Our Vision"),
+                      subtitle: Text(
+                        "To be more than just a shop. JIHC Brand is a symbol of unity, style, and student pride.",
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 24),
+                  Center(
+                    child: Text(
+                      "Thank you for supporting JIHC!",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontStyle: FontStyle.italic,
+                        color: const Color.fromARGB(255, 89, 115, 186),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 30),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

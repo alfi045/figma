@@ -18,7 +18,7 @@ dev_dependencies:
     sdk: flutter
 
 flutter:
-  assets:
+   assets:
     - assets/images/araikusik.jpg
     - assets/images/kkkkkkk.JPG
     - assets/images/clothes.JPG
@@ -28,3 +28,13 @@ flutter:
     - assets/images/cap.jpg
     - assets/images/book.JPG
     - assets/images/bag.jpg
+    - assets/images/clothes4.JPG
+    - assets/images/IMG_1620.JPG
+    - assets/images/IMG_1877.JPG
+    - assets/images/IMG_1893.JPG
+    - assets/images/IMG_1784.JPG
+    - assets/images/IMAGE 2025-05-29 12:09:57.jpg
+    - assets/images/IMAGE 2025-05-29 12:11:00.jpg
+    - assets/images/IMAGE 2025-05-29 12:13:02.jpg
+    - assets/images/IMG_1749.JPG
+    - assets/images/IMG_1746.JPG
