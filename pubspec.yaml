@@ -1,0 +1,30 @@
+name: flutter_application_7
+description: A new Flutter project.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '^3.7.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  assets:
+    - assets/images/araikusik.jpg
+    - assets/images/kkkkkkk.JPG
+    - assets/images/clothes.JPG
+    - assets/images/hoodie.jpg
+    - assets/images/show.JPG
+    - assets/images/pen.JPG
+    - assets/images/cap.jpg
+    - assets/images/book.JPG
+    - assets/images/bag.jpg
